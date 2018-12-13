@@ -29,9 +29,6 @@ namespace WebApplication1
             {
                 await context.Response.WriteAsync("Hello World!");
             });
-
-            int var=0;
-            var = 5;
         }
     }
 }
