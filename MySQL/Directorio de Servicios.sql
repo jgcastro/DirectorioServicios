@@ -103,13 +103,13 @@ hay que cargar todos los cantones
 */
 CREATE TABLE UBICACIONES (
 	ID_UBICAION INT UNSIGNED PRIMARY KEY,
-	PROVINCIA ENUM('ALAJUELA',
-					'SAN JOSE',
-					'HEREDIA',
-					'CARTAGO',
-					'PUNTARENAS',
-					'LIMON',
-					'GUANACASTE') NOT NULL,
+	PROVINCIA ENUM('San José',
+					'Alajuela',
+					'Cartago',
+					'Heredia',
+                    'Guanacaste',
+					'Puntarenas',
+					'Limón') NOT NULL,
     CANTON VARCHAR(10)
 );
 
