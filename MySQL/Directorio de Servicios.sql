@@ -102,7 +102,7 @@ es para mantener consistencia en los datos
 hay que cargar todos los cantones
 */
 CREATE TABLE UBICACIONES (
-	ID_UBICAION INT UNSIGNED PRIMARY KEY,
+	ID_UBICAION INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	PROVINCIA ENUM('San José',
 					'Alajuela',
 					'Cartago',
@@ -110,7 +110,7 @@ CREATE TABLE UBICACIONES (
                     'Guanacaste',
 					'Puntarenas',
 					'Limón') NOT NULL,
-    CANTON VARCHAR(10)
+    CANTON VARCHAR(20)
 );
 
 -- ===========================TABLA "OCUPACIONES_PROFECIONALES"=========================== --
