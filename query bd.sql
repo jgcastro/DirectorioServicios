@@ -42,10 +42,35 @@ create procedure sp_registrarCliente(in id int,
 end$
 
 
-
-
 drop procedure sp_registrarCliente;
 
 call sp_registrarCliente(0,'mario','Mora','leiton','jcam@gmail.cg','88880000',@msj)
 
 select * from clientes
+
+
+
+
+
+
+/*Procedimiento para eliminar registros de la tabla de clientes hace un borrado logico*/
+
+delimiter $
+create procedure sp_eliminarCliente(in correo varchar(30),out msj varchar(100))
+begin
+	if(exists(select * from clientes where CORREO_CLIENTE = correo && BORRADO_CLIENTE=0))
+    then
+		update clientes
+        set BORRADO_CLIENTE=1 where CORREO_CLIENTE = correo;
+        set msj='Su cuenta se cerro con exito';
+        select msj;
+    else
+		set msj='No hay ninguna cuenta activa que corresponda al correo electronico ingresado';
+        select msj;
+    
+    end if;
+end $
+
+call sp_eliminarCliente('jcam@gmail.w',@msj)
+
+
