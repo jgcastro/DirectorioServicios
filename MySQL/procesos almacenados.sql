@@ -83,8 +83,29 @@ BEGIN
 END $
 
 
-
-
 -- select msj='';
 
 -- call SP_EliminarUsuario(3,@msj)
+
+-- proceso almacenado para agregar paginas web 
+
+DELIMITER $
+CREATE PROCEDURE SP_AgregarSitiosWeb(in _cod_sitio int, in _id int ,in _url varchar(20),in _nombre varchar(20), out _msj varchar(100))
+BEGIN 
+	IF NOT EXISTS(SELECT * FROM websites WHERE COD_SITIO=_cod_sitio)
+    THEN
+    BEGIN
+		INSERT INTO websites(ID_USUARIO,URL_SITIO,NOMBRE_SITIO) VALUES(_id,_url,_nombre);
+        SET _msj='El sitio web se agrego correctamente';
+        
+    END; 
+    ELSE 
+    BEGIN 
+		UPDATE websites 
+        SET URL_SITIO=_url,NOMBRE_SITIO=_nombre
+        WHERE COD_SITIO =_cod_sitio;
+        SET _msj='El sitio web se actualizo correctamente';
+    END ;
+    END IF;
+
+END $
