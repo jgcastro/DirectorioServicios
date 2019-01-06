@@ -9,13 +9,12 @@ namespace Configuracion
 {
     public class ClsConfiguracion
     {
-        public string getConnectionString
+        public string getConnectionString()
         {
-            get
-            {
-                //se obtiene la cadena de conexion.
-                return ConfigurationManager.AppSettings["ConnectionString"];
-            }
+            string Cadena = string.Empty;
+
+            Cadena = "Server=Localhost; Database=pagina_web; UID=root; PWD=1234; Port=3306";
+            return Cadena;
         }
     }
 }
