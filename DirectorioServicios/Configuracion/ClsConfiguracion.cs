@@ -11,7 +11,7 @@ namespace Configuracion
     {
         public string getConnectionString()
         {
-            string Cadena = string.Empty;
+            string Cadena;
 
             Cadena = "Server=Localhost; Database=pagina_web; UID=root; PWD=1234; Port=3306";
             return Cadena;
