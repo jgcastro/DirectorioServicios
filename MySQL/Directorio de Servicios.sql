@@ -8,15 +8,15 @@ USE PAGINA_WEB;
 
 -- ===========================TABLA "PROFESIONALES Y CLIENTES"=========================== --
 /*
-Almacena los profecionales
+Almacena los profesionales
 */
 CREATE TABLE USUARIOS (
 	ID_USUARIO INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT, -- SOLO POSITIVOS
-	NOMBRE_PROFECIONAL VARCHAR(20) NOT NULL,
-	APELLIDO1_PROFECIONAL VARCHAR(20) NOT NULL,
-	APELLIDO2_PROFECIONAL VARCHAR(20),
-	CORREO_PROFECIONAL VARCHAR(30) , 
-	TELEFONO_PROFECIONAL VARCHAR(8) UNIQUE NOT NULL, -- EL TELEFONO NO SE REPITE
+	NOMBRE_PROFESIONAL VARCHAR(20) NOT NULL,
+	APELLIDO1_PROFESIONAL VARCHAR(20) NOT NULL,
+	APELLIDO2_PROFESIONAL VARCHAR(20),
+	CORREO_PROFESIONAL VARCHAR(30) , 
+	TELEFONO_PROFESIONAL VARCHAR(8) UNIQUE NOT NULL, -- EL TELEFONO NO SE REPITE
 	DESCRIPCION VARCHAR(200),
 	USUARIO_PREMIUM BIT DEFAULT 0 NOT NULL, -- USUARIO DE PAGA
 	CALIFIC_CONTADOR INT UNSIGNED,		-- CUENTA LAS CALIFICACIONES
@@ -26,9 +26,9 @@ CREATE TABLE USUARIOS (
 
 -- ===========================TABLA "CALIFICACIONES"=========================== --
 /*
-Almacena las calificaciones que los clientes le dieron a los profecionales
+Almacena las calificaciones que los clientes le dieron a los profesionales
 tambien contiene los comentarios y la fecha en que se hicieron
-los clientes solo pueden calificar a los profecionales una vez
+los clientes solo pueden calificar a los profesionales una vez
 */
 CREATE TABLE CALIFICACIONES (
     ID_USUARIO INTEGER UNSIGNED,
@@ -50,31 +50,31 @@ CREATE TABLE OCUPACIONES (
 	ESPACIALIDAD_OCUPACION VARCHAR(20)
 );
 
--- ===========================TABLA "OCUPACIONES_PROFECIONALES"=========================== --
+-- ===========================TABLA "OCUPACIONES_PROFESIONALES"=========================== --
 /*
-asigna una o multiples ocupacione a los profecionales
+asigna una o multiples ocupacione a los profesionales
 */
-CREATE TABLE OCUPACIONES_PROFECIONALES (
+CREATE TABLE OCUPACIONES_PROFESIONALES (
 	ID_USUARIO INTEGER UNSIGNED,
 	ID_OCUPACION INTEGER UNSIGNED,
     
-    -- Un profecional no puede tener la misma ocupacion dos veces
+    -- Un profesional no puede tener la misma ocupacion dos veces
     PRIMARY KEY(ID_USUARIO, ID_OCUPACION)
 );
-ALTER TABLE OCUPACIONES_PROFECIONALES ADD FOREIGN KEY (ID_USUARIO) REFERENCES USUARIOS(ID_USUARIO);
-ALTER TABLE OCUPACIONES_PROFECIONALES ADD FOREIGN KEY (ID_OCUPACION) REFERENCES OCUPACIONES(ID_OCUPACION);
+ALTER TABLE OCUPACIONES_PROFESIONALES ADD FOREIGN KEY (ID_USUARIO) REFERENCES USUARIOS(ID_USUARIO);
+ALTER TABLE OCUPACIONES_PROFESIONALES ADD FOREIGN KEY (ID_OCUPACION) REFERENCES OCUPACIONES(ID_OCUPACION);
 
 -- ===========================TABLA "WEBSITES"=========================== --
 /*
-almacena los sitios web suministrados por el profecional
+almacena los sitios web suministrados por el profesional
 */
-CREATE TABLE WEBSITES (
+CREATE TABLE WEBSITE (
     ID_USUARIO INTEGER UNSIGNED,
 	URL_SITIO VARCHAR(20),
     NOMBRE_SITIO VARCHAR(20),
     PRIMARY KEY (ID_USUARIO, URL_SITIO)
 );
-ALTER TABLE WEBSITES ADD FOREIGN KEY (ID_USUARIO) REFERENCES USUARIOS(ID_USUARIO);
+ALTER TABLE WEBSITE ADD FOREIGN KEY (ID_USUARIO) REFERENCES USUARIOS(ID_USUARIO);
 
 -- ===========================TABLA "UBICACIONES"=========================== --
 /*
@@ -94,17 +94,17 @@ CREATE TABLE UBICACIONES (
     CANTON VARCHAR(20)
 );
 
--- ===========================TABLA "OCUPACIONES_PROFECIONALES"=========================== --
+-- ===========================TABLA "OCUPACIONES_PROFESIONALES"=========================== --
 /*
-asigna una o multiples ubicaciones a los profecionales
+asigna una o multiples ubicaciones a los profesionales
 */
-CREATE TABLE UBICACIONES_PROFECIONALES (
+CREATE TABLE UBICACIONES_PROFESIONALES (
 	ID_USUARIO INTEGER UNSIGNED,
 	ID_UBICACION INTEGER UNSIGNED,
     DETALLES VARCHAR(100), -- opcional (direccion exacta)
     
-    -- Un profecional no puede tener la misma ocupacion dos veces
+    -- Un profesional no puede tener la misma ocupacion dos veces
     PRIMARY KEY(ID_USUARIO, ID_UBICACION)
 );
-ALTER TABLE UBICACIONES_PROFECIONALES ADD FOREIGN KEY (ID_USUARIO) REFERENCES USUARIOS(ID_USUARIO);
-ALTER TABLE UBICACIONES_PROFECIONALES ADD FOREIGN KEY (ID_UBICACION) REFERENCES UBICACIONES(ID_UBICACION);
+ALTER TABLE UBICACIONES_PROFESIONALES ADD FOREIGN KEY (ID_USUARIO) REFERENCES USUARIOS(ID_USUARIO);
+ALTER TABLE UBICACIONES_PROFESIONALES ADD FOREIGN KEY (ID_UBICACION) REFERENCES UBICACIONES(ID_UBICACION);

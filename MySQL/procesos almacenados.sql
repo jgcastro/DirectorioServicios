@@ -1,6 +1,7 @@
--- ============== Proceso almacenado para buscar profecionales segun su ocupación y ubicación ================ 
--- ============== resibe como parametros el nombre de la profecion,provincia y canton y ordena la lista 
 -- ============== primero por el atributo premiun y luego por la calificacion .
+-- ============== Proceso almacenado para buscar profesionales según su ocupación y ubicación ================ 
+-- ============== recibe como parámetros el nombre de la profesion,provincia y cantón y ordena la lista 
+-- ============== primero por el atributo premiun y luego por la calificación .
 
 
 
@@ -8,26 +9,26 @@ DELIMITER $
 CREATE PROCEDURE  SP_ListaProfesionalesSolicitados(in _provincia varchar(20), in _canton varchar(20),in _ocupacion varchar(20))
 BEGIN
 	SELECT 
-		usuarios.NOMBRE_PROFECIONAL,
-        usuarios.APELLIDO1_PROFECIONAL,
-        usuarios.APELLIDO2_PROFECIONAL,
-        usuarios.TELEFONO_PROFECIONAL,
+		usuarios.NOMBRE_PROFESIONAL,
+        usuarios.APELLIDO1_PROFESIONAL,
+        usuarios.APELLIDO2_PROFESIONAL,
+        usuarios.TELEFONO_PROFESIONAL,
         ocupaciones.NOMBRE_OCUPACION,
 		ocupaciones.ESPACIALIDAD_OCUPACION,
         ubicaciones.PROVINCIA,
         ubicaciones.CANTON,
         usuarios.CALIFIC_SUMA
         
-    FROM usuarios inner join ocupaciones_profecionales on usuarios.ID_USUARIO=ocupaciones_profecionales.ID_USUARIO
-						   inner join ocupaciones on ocupaciones.ID_OCUPACION=ocupaciones_profecionales.ID_OCUPACION
-						   inner join ubicaciones_profecionales on usuarios.ID_USUARIO=ubicaciones_profecionales.ID_USUARIO
-                           inner join ubicaciones on ubicaciones.ID_UBICAION=ubicaciones_profecionales.ID_UBICAION
+    FROM usuarios inner join ocupaciones_profesionales on usuarios.ID_USUARIO=ocupaciones_profesionales.ID_USUARIO
+						   inner join ocupaciones on ocupaciones.ID_OCUPACION=ocupaciones_profesionales.ID_OCUPACION
+						   inner join ubicaciones_profesionales on usuarios.ID_USUARIO=ubicaciones_profecionales.ID_USUARIO
+                           inner join ubicaciones on ubicaciones.ID_UBICAION=ubicaciones_profesionales.ID_UBICAION
                        where usuarios.PERFIL_PROFESIONAL=1 and  ubicaciones.PROVINCIA=_provincia and ubicaciones.CANTON=_canton and ocupaciones.NOMBRE_OCUPACION=_ocupacion
 					   order by usuarios.USUARIO_PREMIUM desc,usuarios.CALIFIC_SUMA desc;
 END $
 
 
--- CALL SP_ListaProfesionalesSolicitados('san Jose','Escazu','JARDINERO')
+-- CALL SP_ListaProfesionalesSolicitados('San Jose','Escazu','JARDINERO')
 
 
 
@@ -50,15 +51,15 @@ BEGIN
 				
             END IF;  
              -- 2 eliminar ubicaciones
-            IF EXISTS(SELECT * FROM ubicaciones_profecionales WHERE ID_USUARIO = _id)
+            IF EXISTS(SELECT * FROM ubicaciones_profesionales WHERE ID_USUARIO = _id)
 			THEN
-				DELETE FROM ubicaciones_profecionales WHERE ID_USUARIO=_id;
+				DELETE FROM ubicaciones_profesionales WHERE ID_USUARIO=_id;
 				
             END IF;  
              -- 3 eliminar ocupaciones
-			IF EXISTS(SELECT * FROM ocupaciones_profecionales WHERE ID_USUARIO = _id)
+			IF EXISTS(SELECT * FROM ocupaciones_profesionales WHERE ID_USUARIO = _id)
 			THEN
-				DELETE FROM ocupaciones_profecionales WHERE ID_USUARIO=_id;
+				DELETE FROM ocupaciones_profesionales WHERE ID_USUARIO=_id;
 				
             END IF;
 			-- 4 eliminar calificaciones
