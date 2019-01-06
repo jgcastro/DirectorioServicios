@@ -2,7 +2,7 @@
 -- ============== resibe como parametros el nombre de la profecion,provincia y canton y ordena la lista 
 -- ============== primero por el atributo premiun y luego por la calificacion .
 
-
+use pagina_web;
 
 DELIMITER $
 CREATE PROCEDURE  SP_ListaProfesionalesSolicitados(in _provincia varchar(20), in _canton varchar(20),in _ocupacion varchar(20))
