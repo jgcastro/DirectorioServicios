@@ -1,4 +1,3 @@
--- ============== primero por el atributo premiun y luego por la calificacion .
 -- ============== Proceso almacenado para buscar profesionales según su ocupación y ubicación ================ 
 -- ============== recibe como parámetros el nombre de la profesion,provincia y cantón y ordena la lista 
 -- ============== primero por el atributo premiun y luego por la calificación .
