@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsCalificaciones.cs" />
+    <Compile Include="ClsOcupaciones.cs" />
     <Compile Include="ClsOcupacionesProfesionales.cs" />
     <Compile Include="ClsUbicaciones.cs" />
     <Compile Include="ClsUbicacionesProfesionales.cs" />
