@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntidadesDirectorio
 {
-    class ClsWebSites
+    public class ClsWebSites
     {
         int vgn_Cod_Sitio, vgn_ID_Usuario;
         string vgc_URL_Sitio, vgc_Nombre_Sitio;
