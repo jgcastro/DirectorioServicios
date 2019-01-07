@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using MySql.Data.MySqlClient;
 
 namespace Configuracion
 {
     public class ClsConfiguracion
     {
-        public string getConnectionString()
+        public static MySqlConnection getConnectionString()
         {
-            string Cadena;
-
-            Cadena = "Server=Localhost; Database=pagina_web; UID=root; PWD=1234; Port=3306";
-            return Cadena;
+            MySqlConnection conexion = new MySqlConnection("server=localhost;uid=root;pwd=juanca;database=pagina_web;");
+            return conexion;
         }
     }
 }

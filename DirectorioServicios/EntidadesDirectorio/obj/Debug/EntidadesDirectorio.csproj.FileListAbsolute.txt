@@ -1,0 +1,6 @@
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\EntidadesDirectorio\bin\Debug\EntidadesDirectorio.dll
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\EntidadesDirectorio\bin\Debug\EntidadesDirectorio.pdb
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\EntidadesDirectorio\obj\Debug\EntidadesDirectorio.csprojAssemblyReference.cache
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\EntidadesDirectorio\obj\Debug\EntidadesDirectorio.csproj.CoreCompileInputs.cache
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\EntidadesDirectorio\obj\Debug\EntidadesDirectorio.dll
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\EntidadesDirectorio\obj\Debug\EntidadesDirectorio.pdb

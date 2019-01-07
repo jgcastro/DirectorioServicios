@@ -1,0 +1,16 @@
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\bin\Debug\netstandard2.0\AccesoDatos.deps.json
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\bin\Debug\netstandard2.0\AccesoDatos.dll
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\bin\Debug\netstandard2.0\AccesoDatos.pdb
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\bin\Debug\netstandard2.0\Configuracion.dll
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\bin\Debug\netstandard2.0\EntidadesDirectorio.dll
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\bin\Debug\netstandard2.0\MySql.Data.dll
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\bin\Debug\netstandard2.0\Configuracion.pdb
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\bin\Debug\netstandard2.0\EntidadesDirectorio.pdb
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\bin\Debug\netstandard2.0\MySql.Data.xml
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\obj\Debug\netstandard2.0\AccesoDatos.csprojAssemblyReference.cache
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\obj\Debug\netstandard2.0\AccesoDatos.csproj.CoreCompileInputs.cache
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\obj\Debug\netstandard2.0\AccesoDatos.AssemblyInfoInputs.cache
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\obj\Debug\netstandard2.0\AccesoDatos.AssemblyInfo.cs
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\obj\Debug\netstandard2.0\AccesoDatos.csproj.CopyComplete
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\obj\Debug\netstandard2.0\AccesoDatos.dll
+C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\AccesoDatos\obj\Debug\netstandard2.0\AccesoDatos.pdb

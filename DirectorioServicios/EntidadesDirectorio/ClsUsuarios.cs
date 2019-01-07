@@ -9,9 +9,9 @@ namespace EntidadesDirectorio
     public class ClsUsuarios
     {
         //ARGUMENTOS
-        int vgn_ID_Usuario, vgn_Calif_Contador, vgn_Calif_Suma;
-        string vgc_Nombre_Profesional, vgc_Apellido1_Profesional, vgc_Apellido2_Profesional, vgc_Telefono_Profesional, vgc_Descripcion;
-        bool vgb_Usuario_Premium, vgb_Perfil_Profesional;
+        private int vgn_ID_Usuario, vgn_Calif_Contador, vgn_Calif_Suma;
+        private string vgc_Nombre_Profesional, vgc_Apellido1_Profesional, vgc_Apellido2_Profesional, vgc_Telefono_Profesional, vgc_Descripcion, vgc_correo;
+        private bool vgb_Usuario_Premium, vgb_Perfil_Profesional;
 
         //CONSTRUCTOR
         public ClsUsuarios()
@@ -26,8 +26,9 @@ namespace EntidadesDirectorio
             vgn_Calif_Contador = 0;
             vgn_Calif_Suma = 0;
             vgn_ID_Usuario = 0;
+            vgc_correo = string.Empty;
         }
-        public ClsUsuarios(int vgn_ID_Usuario, int vgn_Calif_Contador, int vgn_Calif_Suma, string vgc_Nombre_Profesional, string vgc_Apellido1_Profesional, string vgc_Apellido2_Profesional, string vgc_Telefono_Profesional, string vgc_Descripcion, bool vgb_Usuario_Premium, bool vgb_Perfil_Profesional)
+        public ClsUsuarios(int vgn_ID_Usuario, string vgc_Nombre_Profesional, string vgc_Apellido1_Profesional, string vgc_Apellido2_Profesional, string vgc_correo, string vgc_Telefono_Profesional, string vgc_Descripcion, bool vgb_Usuario_Premium, int vgn_Calif_Contador, int vgn_Calif_Suma, bool vgb_Perfil_Profesional)
         {
             this.vgn_ID_Usuario = vgn_ID_Usuario;
             this.vgn_Calif_Contador = vgn_Calif_Contador;
@@ -39,6 +40,7 @@ namespace EntidadesDirectorio
             this.vgc_Descripcion = vgc_Descripcion;
             this.vgb_Usuario_Premium = vgb_Usuario_Premium;
             this.vgb_Perfil_Profesional = vgb_Perfil_Profesional;
+            this.vgc_correo = vgc_correo;
         }
 
         //PROPIEDADES
@@ -52,5 +54,6 @@ namespace EntidadesDirectorio
         public string Descripcion { get => vgc_Descripcion; set => vgc_Descripcion = value; }
         public bool Usuario_Premium { get => vgb_Usuario_Premium; set => vgb_Usuario_Premium = value; }
         public bool Perfil_Profesional { get => vgb_Perfil_Profesional; set => vgb_Perfil_Profesional = value; }
+        public string Correo { get => vgc_correo; set => vgc_correo = value; }
     }
 }
