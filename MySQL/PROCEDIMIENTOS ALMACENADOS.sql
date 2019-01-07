@@ -60,11 +60,61 @@ DELIMITER ;
 -- ========== Eliminar Pagina web ========== --
 DELIMITER $
 DROP PROCEDURE IF EXISTS `DIRECTORIO_SERVICIOS`.`SP_EliminarSitiosWeb` $ -- facilita actualizar el procedimiento
-CREATE PROCEDURE `DIRECTORIO_SERVICIOS`.`SP_EliminarSitiosWeb`(in _cod_sitio int, in _id int ,in _url varchar(20),in _nombre varchar(20), out _msj varchar(100))
+CREATE PROCEDURE `DIRECTORIO_SERVICIOS`.`SP_EliminarSitiosWeb`(in _cod_sitio int, out _msj varchar(100))
 BEGIN 
 	IF EXISTS(SELECT * FROM websites WHERE COD_SITIO=_cod_sitio) THEN
 		BEGIN
 			DELETE FROM websites WHERE COD_SITIO=_cod_sitio;
+			SET _msj='El sitio web se elimino correctamente';
+		END; 
+    ELSE 
+		BEGIN 
+			SET _msj='El sitio web no existe';
+		END ;
+    END IF;
+END $
+DELIMITER ;
+
+
+-- ========== Agregar o Actualizar Ubicacion Profecional ========== --
+DELIMITER $
+DROP PROCEDURE IF EXISTS `DIRECTORIO_SERVICIOS`.`SP_AgregarUbicacionProfecional` $ -- facilita actualizar el procedimiento
+CREATE PROCEDURE `DIRECTORIO_SERVICIOS`.`SP_AgregarUbicacionProfecional`(in _ID_USUARIO int, 
+																  in _ID_UBICACION int,
+                                                                  in _DETALLES varchar(100),
+                                                                  out _msj varchar(100))
+BEGIN 
+	IF NOT EXISTS(SELECT * FROM UBICACIONES_PROFESIONALES WHERE ID_USUARIO=_ID_USUARIO AND ID_UBICACION=_ID_UBICACION)
+    THEN
+    BEGIN
+		INSERT INTO UBICACIONES_PROFESIONALES(ID_USUARIO,ID_UBICACION,DETALLES) VALUES(_ID_USUARIO,_ID_UBICACION,_DETALLES);
+        SET _msj='La ubicación se agrego correctamente';
+        
+    END; 
+    ELSE 
+    BEGIN 
+		UPDATE UBICACIONES_PROFESIONALES 
+        SET ID_UBICACION=_ID_UBICACION, DETALLES=_DETALLES
+        WHERE ID_USUARIO=_ID_USUARIO AND ID_UBICACION=_ID_UBICACION;
+        SET _msj='La ubicacíon se actualizo correctamente';
+    END ;
+    END IF;
+
+END $
+
+DELIMITER ;
+
+
+-- =============== Eliminar Ubicacion Profecional ================= --
+DELIMITER $
+DROP PROCEDURE IF EXISTS `DIRECTORIO_SERVICIOS`.`SP_EliminarUbicacionProfecional` $ -- facilita actualizar el procedimiento
+CREATE PROCEDURE `DIRECTORIO_SERVICIOS`.`SP_EliminarUbicacionProfecional`(in _ID_USUARIO int, 
+																		  in _ID_UBICACION int,
+																		  out _msj varchar(100))
+BEGIN 
+	IF EXISTS(SELECT * FROM UBICACIONES_PROFESIONALES WHERE ID_USUARIO=_ID_USUARIO AND ID_UBICACION=_ID_UBICACION) THEN
+		BEGIN
+			DELETE FROM UBICACIONES_PROFESIONALES WHERE ID_USUARIO=_ID_USUARIO AND ID_UBICACION=_ID_UBICACION;
 			SET _msj='El sitio web se elimino correctamente';
 		END; 
     ELSE 
