@@ -1,7 +1,7 @@
 -- =========== Directorio de Servicios: "Cantones de costarica" =========== --
 -- ========================== Utilizando MySQL ============================ --
 
-USE pagina_web;
+USE TEST;
 
 -- San José --
 INSERT INTO UBICACIONES (PROVINCIA, CANTON)
