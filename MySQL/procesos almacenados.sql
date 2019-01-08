@@ -20,8 +20,13 @@ BEGIN
         
     FROM usuarios inner join ocupaciones_profesionales on usuarios.ID_USUARIO=ocupaciones_profesionales.ID_USUARIO
 						   inner join ocupaciones on ocupaciones.ID_OCUPACION=ocupaciones_profesionales.ID_OCUPACION
+<<<<<<< HEAD
 						   inner join ubicaciones_profesionales on usuarios.ID_USUARIO=ubicaciones_profesionales.ID_USUARIO
                            inner join ubicaciones on ubicaciones.ID_UBICACION=ubicaciones_profesionales.ID_UBICACION
+=======
+						   inner join ubicaciones_profesionales on usuarios.ID_USUARIO=ubicaciones_profecionales.ID_USUARIO
+                           inner join ubicaciones on ubicaciones.ID_UBICAION=ubicaciones_profesionales.ID_UBICAION
+>>>>>>> 428a62ac2a46f44fb1571e1d33b1d76843a4a5a2
                        where usuarios.PERFIL_PROFESIONAL=1 and  ubicaciones.PROVINCIA=_provincia and ubicaciones.CANTON=_canton and ocupaciones.NOMBRE_OCUPACION=_ocupacion
 					   order by usuarios.USUARIO_PREMIUM desc,usuarios.CALIFIC_SUMA desc;
 END $
@@ -30,7 +35,11 @@ END $
 -- CALL SP_ListaProfesionalesSolicitados('San Jose','Escazu','JARDINERO')
 
 
+<<<<<<< HEAD
 -- drop procedure SP_ListaProfesionalesSolicitados
+=======
+
+>>>>>>> 428a62ac2a46f44fb1571e1d33b1d76843a4a5a2
 
 
 -- Resive como parametro el id del usuario verifica si existe y elimina el registro del usuario 
@@ -44,9 +53,15 @@ BEGIN
 	THEN
 	BEGIN
 		  -- 1 eliminar sitios web
+<<<<<<< HEAD
 		  IF EXISTS(SELECT * FROM website WHERE ID_USUARIO = _id)
 		  THEN
 				DELETE FROM website WHERE ID_USUARIO=_id;
+=======
+		  IF EXISTS(SELECT * FROM websites WHERE ID_USUARIO = _id)
+		  THEN
+				DELETE FROM websites WHERE ID_USUARIO=_id;
+>>>>>>> 428a62ac2a46f44fb1571e1d33b1d76843a4a5a2
 				
             END IF;  
              -- 2 eliminar ubicaciones
@@ -85,7 +100,11 @@ END $
 
 -- select msj='';
 
+<<<<<<< HEAD
 
+=======
+-- call SP_EliminarUsuario(3,@msj)
+>>>>>>> 428a62ac2a46f44fb1571e1d33b1d76843a4a5a2
 
 -- proceso almacenado para agregar paginas web 
 
@@ -95,13 +114,21 @@ BEGIN
 	IF NOT EXISTS(SELECT * FROM websites WHERE COD_SITIO=_cod_sitio)
     THEN
     BEGIN
+<<<<<<< HEAD
 		INSERT INTO website(ID_USUARIO,URL_SITIO,NOMBRE_SITIO) VALUES(_id,_url,_nombre);
+=======
+		INSERT INTO websites(ID_USUARIO,URL_SITIO,NOMBRE_SITIO) VALUES(_id,_url,_nombre);
+>>>>>>> 428a62ac2a46f44fb1571e1d33b1d76843a4a5a2
         SET _msj='El sitio web se agrego correctamente';
         
     END; 
     ELSE 
     BEGIN 
+<<<<<<< HEAD
 		UPDATE website
+=======
+		UPDATE websites 
+>>>>>>> 428a62ac2a46f44fb1571e1d33b1d76843a4a5a2
         SET URL_SITIO=_url,NOMBRE_SITIO=_nombre
         WHERE COD_SITIO =_cod_sitio;
         SET _msj='El sitio web se actualizo correctamente';
@@ -109,7 +136,10 @@ BEGIN
     END IF;
 
 END $
+<<<<<<< HEAD
 
 
 -- drop procedure SP_EliminarUsuario
 
+=======
+>>>>>>> 428a62ac2a46f44fb1571e1d33b1d76843a4a5a2
