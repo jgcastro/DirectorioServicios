@@ -4,3 +4,9 @@ C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\Direct
 C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\EntidadesDirectorio\obj\Debug\EntidadesDirectorio.csproj.CoreCompileInputs.cache
 C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\EntidadesDirectorio\obj\Debug\EntidadesDirectorio.dll
 C:\Users\RogStrix2018\Desktop\c#\Nueva carpeta\DirectorioServicios-master\DirectorioServicios\EntidadesDirectorio\obj\Debug\EntidadesDirectorio.pdb
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\EntidadesDirectorio\bin\Debug\EntidadesDirectorio.dll
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\EntidadesDirectorio\bin\Debug\EntidadesDirectorio.pdb
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\EntidadesDirectorio\obj\Debug\EntidadesDirectorio.csprojAssemblyReference.cache
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\EntidadesDirectorio\obj\Debug\EntidadesDirectorio.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\EntidadesDirectorio\obj\Debug\EntidadesDirectorio.dll
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\EntidadesDirectorio\obj\Debug\EntidadesDirectorio.pdb
