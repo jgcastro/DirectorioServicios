@@ -18,4 +18,7 @@ insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
 values ('peon construcción','');
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
 values ('operador back hoe','');
+<<<<<<< HEAD
 select * from ocupaciones
+=======
+>>>>>>> 428a62ac2a46f44fb1571e1d33b1d76843a4a5a2
