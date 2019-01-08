@@ -234,11 +234,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tomás\\Documents\\GitHub\\Repositorios\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\CapaLogica\\CapaLogica.csproj",
+      "projectUniqueName": "C:\\Users\\Tomás\\Source\\Repos\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\CapaLogica\\CapaLogica.csproj",
       "projectName": "CapaLogica",
-      "projectPath": "C:\\Users\\Tomás\\Documents\\GitHub\\Repositorios\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\CapaLogica\\CapaLogica.csproj",
+      "projectPath": "C:\\Users\\Tomás\\Source\\Repos\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\CapaLogica\\CapaLogica.csproj",
       "packagesPath": "C:\\Users\\Tomás\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tomás\\Documents\\GitHub\\Repositorios\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\CapaLogica\\obj\\",
+      "outputPath": "C:\\Users\\Tomás\\Source\\Repos\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\CapaLogica\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -257,11 +257,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\Tomás\\Documents\\GitHub\\Repositorios\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\AccesoDatos\\AccesoDatos.csproj": {
-              "projectPath": "C:\\Users\\Tomás\\Documents\\GitHub\\Repositorios\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\AccesoDatos\\AccesoDatos.csproj"
+            "C:\\Users\\Tomás\\Source\\Repos\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\AccesoDatos\\AccesoDatos.csproj": {
+              "projectPath": "C:\\Users\\Tomás\\Source\\Repos\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\AccesoDatos\\AccesoDatos.csproj"
             },
-            "C:\\Users\\Tomás\\Documents\\GitHub\\Repositorios\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\EntidadesDirectorio\\EntidadesDirectorio.csproj": {
-              "projectPath": "C:\\Users\\Tomás\\Documents\\GitHub\\Repositorios\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\EntidadesDirectorio\\EntidadesDirectorio.csproj"
+            "C:\\Users\\Tomás\\Source\\Repos\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\EntidadesDirectorio\\EntidadesDirectorio.csproj": {
+              "projectPath": "C:\\Users\\Tomás\\Source\\Repos\\DirectorioServicios\\DirectorioServicios\\DirectorioServicios\\EntidadesDirectorio\\EntidadesDirectorio.csproj"
             }
           }
         }
