@@ -1,21 +1,19 @@
- 
- -- ================================= REGISTRAR O MODIFICAR USUARIO ================================= --
- 
-/*
-CALL REGISTRAR_O_ACTUALIZARINFO_USUARIOS(-1,'YO','VARGAS','FERNANDEZ','NINGUNO3','70302288','NADA',
+use pagina_web;
+
+/*CALL REGISTRAR_Y_ACTUALIZARINFO_USUARIOS(-1,'YO','VARGAS','FERNANDEZ','NINGUNO3','70302288','NADA',
                                                         0,
                                                         1,
                                                         1,
                                                         1, 
                                                         'NO_DETALLE', 
                                                         'NO_WEB', 
-                                                        'NO_WEB');
-*/ 
+                                                        'NO_WEB');*/ /* LLAMADO DEL PROCEDIMIENTO*/
 
-/* LLAMADO DEL PROCEDIMIENTO*/
-DELIMITER $
-DROP PROCEDURE IF EXISTS `PAGINA_WEB`.`SP_REGISTRAR_O_ACTUALIZAR_USUARIO` $ -- facilita actualizar el procedimiento
-CREATE PROCEDURE `PAGINA_WEB`.`SP_REGISTRAR_O_ACTUALIZAR_USUARIO`(IN _ID_USUARIOS INT,
+
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `REGISTRAR_Y_ACTUALIZARINFO_USUARIOS`(IN _ID_USUARIOS INT,
 													  IN _NOMBRE VARCHAR(20),
                                                       IN _APELLIDO1 VARCHAR(20),
                                                       IN _APELLIDO2 VARCHAR(20),
@@ -88,61 +86,5 @@ DECLARE ID INT unsigned;
                 
 		END CASE;
 	END IF;
-END $
+END$$
 DELIMITER ;
-
--- ============== ELIMINAR_USUARIO ================ --
-DELIMITER $
--- Resive como parametro el id del usuario verifica si existe y elimina el registro del usuario 
--- verificando en cada tabla de la base de datos donde este el id del usuario que se va a eliminar
-
--- select msj='';
--- call SP_EliminarUsuario(3,@msj)
-
-DROP PROCEDURE IF EXISTS `PAGINA_WEB`.`SP_EliminarUsuario` $ -- facilita actualizar el procedimiento
-CREATE PROCEDURE `PAGINA_WEB`.`SP_EliminarUsuario`(in _id integer, out msj varchar(100))
-BEGIN
-    IF EXISTS(SELECT * FROM usuarios WHERE ID_USUARIO = _id)
-	THEN
-	BEGIN
-		  -- 1 eliminar sitios web
-		  IF EXISTS(SELECT * FROM WEBSITES WHERE ID_USUARIO = _id)
-		  THEN
-				DELETE FROM WEBSITES WHERE ID_USUARIO=_id;
-				
-            END IF;  
-             -- 2 eliminar ubicaciones
-            IF EXISTS(SELECT * FROM ubicaciones_profesionales WHERE ID_USUARIO = _id)
-			THEN
-				DELETE FROM ubicaciones_profesionales WHERE ID_USUARIO=_id;
-				
-            END IF;  
-             -- 3 eliminar ocupaciones
-			IF EXISTS(SELECT * FROM ocupaciones_profesionales WHERE ID_USUARIO = _id)
-			THEN
-				DELETE FROM ocupaciones_profesionales WHERE ID_USUARIO=_id;
-				
-            END IF;
-			-- 4 eliminar calificaciones
-			IF EXISTS(SELECT * FROM calificaciones WHERE ID_USUARIO = _id)
-			THEN
-				DELETE FROM calificaciones WHERE ID_USUARIO=_id;
-		
-            END IF;
-			-- 5 eliminar usuario
-			IF EXISTS(SELECT * FROM usuarios WHERE ID_USUARIO = _id)
-			THEN
-				DELETE FROM usuarios WHERE ID_USUARIO=_id;
-		
-            END IF;
-		  SET msj='Su cuenta fue eliminada con exito';
-	END;
-	ELSE
-		SET msj='no existe el usuario';
-	END IF;
-    
-	SELECT msj;
-END $
-DELIMITER ;
-
-
