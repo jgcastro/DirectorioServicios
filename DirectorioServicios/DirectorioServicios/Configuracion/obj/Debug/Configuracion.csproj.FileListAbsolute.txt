@@ -17,3 +17,13 @@ C:\Users\Tomás\Downloads\DirectorioServicios-master\DirectorioServicios-master\
 C:\Users\Tomás\Downloads\DirectorioServicios-master\DirectorioServicios-master\DirectorioServicios\Configuracion\obj\Debug\Configuracion.csproj.CopyComplete
 C:\Users\Tomás\Downloads\DirectorioServicios-master\DirectorioServicios-master\DirectorioServicios\Configuracion\obj\Debug\Configuracion.dll
 C:\Users\Tomás\Downloads\DirectorioServicios-master\DirectorioServicios-master\DirectorioServicios\Configuracion\obj\Debug\Configuracion.pdb
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\Configuracion\bin\Debug\Configuracion.dll
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\Configuracion\bin\Debug\Configuracion.pdb
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\Configuracion\bin\Debug\MySql.Data.dll
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\Configuracion\bin\Debug\Google.Protobuf.dll
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\Configuracion\bin\Debug\MySql.Data.xml
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\Configuracion\obj\Debug\Configuracion.csprojAssemblyReference.cache
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\Configuracion\obj\Debug\Configuracion.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\Configuracion\obj\Debug\Configuracion.csproj.CopyComplete
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\Configuracion\obj\Debug\Configuracion.dll
+C:\Users\ADMIN\Desktop\DirectorioDeServicios\DirectorioServicios\DirectorioServicios\Configuracion\obj\Debug\Configuracion.pdb
