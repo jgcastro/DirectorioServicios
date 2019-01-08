@@ -5,7 +5,7 @@ USE PAGINA_WEB;
 
 -- Mecánico --
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
-values ('Mecánico','Agricola');
+values ('Mecánico','Agrícola');
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
 values ('Mecánico','Automotris');
 
@@ -29,8 +29,8 @@ values ('Soldador','Soldador');
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
 values ('Construcción','Maestro de obras');
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
-values ('Construcción','Peon');
+values ('Construcción','Peón');
 
 -- Informática --
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
-values ('Informática','Operador back end');
+values ('Informática','Operador Back End');
