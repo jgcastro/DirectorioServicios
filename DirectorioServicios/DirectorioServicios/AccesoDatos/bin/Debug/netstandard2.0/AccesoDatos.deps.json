@@ -25,9 +25,6 @@
         }
       },
       "Configuracion/1.0.0": {
-        "dependencies": {
-          "Google.Protobuf": "3.5.1.0"
-        },
         "runtime": {
           "Configuracion.dll": {}
         }
@@ -45,7 +42,7 @@
           }
         }
       },
-      "Google.Protobuf.Reference/3.5.1.0": {
+      "Google.Protobuf/3.5.1.0": {
         "runtime": {
           "Google.Protobuf.dll": {
             "assemblyVersion": "3.5.1.0",
@@ -90,7 +87,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Google.Protobuf.Reference/3.5.1.0": {
+    "Google.Protobuf/3.5.1.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
