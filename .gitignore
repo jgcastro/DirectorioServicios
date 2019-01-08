@@ -5,3 +5,5 @@ DirectorioServicios/Configuracion/obj/Debug/Configuracion.csprojAssemblyReferenc
 DirectorioServicios/.vs/DirectorioServicios/v15/Server/sqlite3/storage.ide-shm
 DirectorioServicios/.vs/DirectorioServicios/v15/Server/sqlite3/storage.ide-shm
 DirectorioServicios/.vs/DirectorioServicios/v15/Server/sqlite3/storage.ide-shm
+DirectorioServicios/DirectorioServicios/AccesoDatos/AccesoDatos.csproj
+DirectorioServicios/DirectorioServicios/.vs/DirectorioServicios/v15/.suo
