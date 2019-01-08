@@ -60,5 +60,15 @@ namespace AccesoDatos
             return vlo_ListaUsuarios;
         }
 
+        public int InsertarUsuario(ClsUsuarios pvo_Usuario)
+        {
+            //Variables
+            int vln_Correcta = 0;
+
+            //Inicio
+
+            return vln_Correcta;
+        }
+
     }
 }
