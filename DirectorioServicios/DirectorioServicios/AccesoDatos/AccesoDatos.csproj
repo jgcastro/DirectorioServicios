@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <Reference Include="MySql.Data">
-      <HintPath>..\..\..\..\..\OneDrive\Directorio de Servicios\DirectorioServicios\DLL\MySql.Data.dll</HintPath>
+      <HintPath>..\..\DLL\MySql.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
 
