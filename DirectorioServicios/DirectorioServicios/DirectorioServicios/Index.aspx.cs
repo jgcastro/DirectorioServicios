@@ -13,12 +13,10 @@ namespace DirectorioServicios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Console.WriteLine("entro1");
+            
             if (!IsPostBack)
-            {
-                Console.WriteLine("entro2");
+            {               
                 LogicaUsuario logica = new LogicaUsuario();
-                //List<ClsUsuarios> listaUsuarios;
 
                 try
                 {
