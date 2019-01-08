@@ -12,7 +12,7 @@ namespace Configuracion
     {
         public static string getConnectionString()
         {
-            string conexion = "server=localhost;uid=root;pwd=1234;database=pagina_web;";
+            string conexion = "server=localhost;uid=root;pwd=root;database=pagina_web;";
             return conexion;
         }
     }
