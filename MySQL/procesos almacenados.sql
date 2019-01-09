@@ -5,26 +5,26 @@
 USE PAGINA_WEB;
 
 DELIMITER $
-CREATE PROCEDURE  SP_ListaProfesionalesSolicitados(in _provincia varchar(20), in _canton varchar(20),in _ocupacion varchar(20))
+CREATE PROCEDURE `SP_ListaProfesionalesSolicitados`(in _provincia varchar(20), in _canton varchar(20),in _ocupacion varchar(20))
 BEGIN
 	SELECT 
-		usuarios.ID_USUARIO,
-		usuarios.NOMBRE_PROFESIONAL,
-        usuarios.APELLIDO1_PROFESIONAL,
-        usuarios.APELLIDO2_PROFESIONAL,
-        usuarios.TELEFONO_PROFESIONAL,
-        ocupaciones.NOMBRE_OCUPACION,
-		ocupaciones.ESPACIALIDAD_OCUPACION,
-        ubicaciones.PROVINCIA,
-        ubicaciones.CANTON,
-        usuarios.CALIFIC_SUMA
+		USUARIOS.ID_USUARIO,
+		USUARIOS.NOMBRE_PROFESIONAL,
+        USUARIOS.APELLIDO1_PROFESIONAL,
+        USUARIOS.APELLIDO2_PROFESIONAL,
+        USUARIOS.TELEFONO_PROFESIONAL,
+        OCUPACIONES.NOMBRE_OCUPACION,
+		OCUPACIONES.ESPACIALIDAD_OCUPACION,
+        UBICACIONES.PROVINCIA,
+        UBICACIONES.CANTON,
+        USUARIOS.CALIFIC_SUMA
         
-    FROM usuarios inner join ocupaciones_profesionales on usuarios.ID_USUARIO=ocupaciones_profesionales.ID_USUARIO
-						   inner join ocupaciones on ocupaciones.ID_OCUPACION=ocupaciones_profesionales.ID_OCUPACION
-						   inner join ubicaciones_profesionales on usuarios.ID_USUARIO=ubicaciones_profesionales.ID_USUARIO
-                           inner join ubicaciones on ubicaciones.ID_UBICACION=ubicaciones_profesionales.ID_UBICACION
-                       where usuarios.PERFIL_PROFESIONAL=1 and  ubicaciones.PROVINCIA=_provincia and ubicaciones.CANTON=_canton and ocupaciones.NOMBRE_OCUPACION=_ocupacion
-					   order by usuarios.USUARIO_PREMIUM desc,usuarios.CALIFIC_SUMA desc;
+    FROM USUARIOS LEFT OUTER JOIN OCUPACIONES_PROFESIONALES on USUARIOS.ID_USUARIO=OCUPACIONES_PROFESIONALES.ID_USUARIO
+				  LEFT OUTER JOIN OCUPACIONES on OCUPACIONES.ID_OCUPACION=OCUPACIONES_PROFESIONALES.ID_OCUPACION
+				  LEFT OUTER JOIN UBICACIONES_PROFESIONALES on USUARIOS.ID_USUARIO=UBICACIONES_PROFESIONALES.ID_USUARIO
+				  LEFT OUTER JOIN UBICACIONES on UBICACIONES.ID_UBICACION=UBICACIONES_PROFESIONALES.ID_UBICACION
+	WHERE USUARIOS.PERFIL_PROFESIONAL=1 and  UBICACIONES.PROVINCIA=_provincia and UBICACIONES.CANTON=_canton and OCUPACIONES.NOMBRE_OCUPACION=_ocupacion
+	ORDER BY USUARIOS.USUARIO_PREMIUM desc,USUARIOS.CALIFIC_SUMA desc;
 END $
 DELIMITER ;
 
