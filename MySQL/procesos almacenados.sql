@@ -8,6 +8,7 @@ DELIMITER $
 CREATE PROCEDURE  SP_ListaProfesionalesSolicitados(in _provincia varchar(20), in _canton varchar(20),in _ocupacion varchar(20))
 BEGIN
 	SELECT 
+		usuarios.ID_USUARIO,
 		usuarios.NOMBRE_PROFESIONAL,
         usuarios.APELLIDO1_PROFESIONAL,
         usuarios.APELLIDO2_PROFESIONAL,
@@ -42,9 +43,9 @@ BEGIN
 	THEN
 	BEGIN
 		  -- 1 eliminar sitios web
-		  IF EXISTS(SELECT * FROM website WHERE ID_USUARIO = _id)
+		  IF EXISTS(SELECT * FROM WEBSITES WHERE ID_USUARIO = _id)
 		  THEN
-				DELETE FROM website WHERE ID_USUARIO=_id;
+				DELETE FROM WEBSITES WHERE ID_USUARIO=_id;
 				
             END IF;  
              -- 2 eliminar ubicaciones
@@ -90,16 +91,16 @@ DELIMITER ;
 DELIMITER $
 CREATE PROCEDURE SP_AgregarSitiosWeb(in _cod_sitio int, in _id int ,in _url varchar(20),in _nombre varchar(20), out _msj varchar(100))
 BEGIN 
-	IF NOT EXISTS(SELECT * FROM websites WHERE COD_SITIO=_cod_sitio)
+	IF NOT EXISTS(SELECT * FROM WEBSITES WHERE COD_SITIO=_cod_sitio)
     THEN
     BEGIN
-		INSERT INTO website(ID_USUARIO,URL_SITIO,NOMBRE_SITIO) VALUES(_id,_url,_nombre);
+		INSERT INTO WEBSITES(ID_USUARIO,URL_SITIO,NOMBRE_SITIO) VALUES(_id,_url,_nombre);
         SET _msj='El sitio web se agrego correctamente';
         
     END; 
     ELSE 
     BEGIN 
-		UPDATE website
+		UPDATE WEBSITES
         SET URL_SITIO=_url,NOMBRE_SITIO=_nombre
         WHERE COD_SITIO =_cod_sitio;
         SET _msj='El sitio web se actualizo correctamente';
@@ -113,9 +114,9 @@ DELIMITER ;
 DELIMITER $
 CREATE PROCEDURE SP_EliminarSitiosWeb(in _cod_sitio int, out _msj varchar(100))
 BEGIN 
-	IF EXISTS(SELECT * FROM WEBSITE WHERE COD_SITIO=_cod_sitio) THEN
+	IF EXISTS(SELECT * FROM WEBSITES WHERE COD_SITIO=_cod_sitio) THEN
 		BEGIN
-			DELETE FROM WEBSITE WHERE COD_SITIO=_cod_sitio;
+			DELETE FROM WEBSITES WHERE COD_SITIO=_cod_sitio;
 			SET _msj='El sitio web se elimino correctamente';
 		END; 
     ELSE 
