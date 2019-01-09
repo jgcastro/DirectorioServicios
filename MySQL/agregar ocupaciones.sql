@@ -1,21 +1,36 @@
-use pagina_web;
+-- ======== Directorio de Servicios: "Ocupaciones y Especialidades" ======== --
+-- ========================== Utilizando MySQL ============================= --
 
+USE PAGINA_WEB;
+
+-- Mecánico --
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
-values ('Mecanico','Agricola');
+values ('Mecánico','Agrícola');
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
-values ('Mecanico','Automotris');
+values ('Mecánico','Automotriz');
+
+-- Jardinero --
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
-values ('Jardinero','');
+values ('Jardinero','Jardinero');
+
+-- Ingeniero --
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
-values ('Electricista','');
+values ('Ingeniero','Electricista');
+
+-- Plomero --
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
-values ('Plomero','');
+values ('Plomero','Plomero');
+
+-- Soldador --
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
-values ('Soldador','');
+values ('Soldador','Soldador');
+
+-- Construcción --
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
-values ('Maestro de obras','');
+values ('Construcción','Maestro de obras');
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
-values ('peon construcción','');
+values ('Construcción','Peón');
+
+-- Informática --
 insert into ocupaciones(NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
-values ('operador back hoe','');
-select * from ocupaciones
+values ('Informática','Operador Back End');

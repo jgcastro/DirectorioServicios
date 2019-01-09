@@ -2,7 +2,7 @@
 -- ============== recibe como parámetros el nombre de la profesion,provincia y cantón y ordena la lista 
 -- ============== primero por el atributo premiun y luego por la calificación .
 
-use pagina_web;
+USE PAGINA_WEB;
 
 DELIMITER $
 CREATE PROCEDURE  SP_ListaProfesionalesSolicitados(in _provincia varchar(20), in _canton varchar(20),in _ocupacion varchar(20))
@@ -25,18 +25,16 @@ BEGIN
                        where usuarios.PERFIL_PROFESIONAL=1 and  ubicaciones.PROVINCIA=_provincia and ubicaciones.CANTON=_canton and ocupaciones.NOMBRE_OCUPACION=_ocupacion
 					   order by usuarios.USUARIO_PREMIUM desc,usuarios.CALIFIC_SUMA desc;
 END $
+DELIMITER ;
+
 
 
 -- CALL SP_ListaProfesionalesSolicitados('San Jose','Escazu','JARDINERO')
 
-
 -- drop procedure SP_ListaProfesionalesSolicitados
-
 
 -- Resive como parametro el id del usuario verifica si existe y elimina el registro del usuario 
 -- verificando en cada tabla de la base de datos donde este el id del usuario que se va a eliminar
-
-
 DELIMITER $
 CREATE PROCEDURE SP_EliminarUsuario(in _id integer, out msj varchar(100))
 BEGIN
@@ -81,7 +79,7 @@ BEGIN
     
 	SELECT msj;
 END $
-
+DELIMITER ;
 
 -- select msj='';
 
@@ -109,13 +107,28 @@ BEGIN
     END IF;
 
 END $
+DELIMITER ;
 
-
--- drop procedure SP_EliminarUsuario
---PROCEDIMIENTO PARA AGREGAR UNA OCUPACIÓN
-use pagina_web;
+-- Eliminar Pagina web
 DELIMITER $
-CREATE PROCEDURE Sp_AgregarOcupacion(in _idOcupacion int,in _nombre varchar(20),in _especialidad varchar(20),out _msj varchar(100) )
+CREATE PROCEDURE SP_EliminarSitiosWeb(in _cod_sitio int, out _msj varchar(100))
+BEGIN 
+	IF EXISTS(SELECT * FROM WEBSITE WHERE COD_SITIO=_cod_sitio) THEN
+		BEGIN
+			DELETE FROM WEBSITE WHERE COD_SITIO=_cod_sitio;
+			SET _msj='El sitio web se elimino correctamente';
+		END; 
+    ELSE 
+		BEGIN 
+			SET _msj='El sitio web no existe';
+		END ;
+    END IF;
+END $
+DELIMITER ;
+
+-- PROCEDIMIENTO PARA AGREGAR UNA OCUPACIÓN
+DELIMITER $
+CREATE PROCEDURE SP_AgregarOcupacion(in _idOcupacion int,in _nombre varchar(20),in _especialidad varchar(20),out _msj varchar(100))
 BEGIN
 	IF EXISTS(SELECT * FROM ocupaciones WHERE ID_OCUPACION = _idOcupacion)
     THEN
@@ -135,5 +148,52 @@ BEGIN
     END IF;
     
 END $																 
-																 
+DELIMITER ;
+
+-- ========== Agregar o Actualizar Ubicacion Profecional ========== --
+DELIMITER $
+CREATE PROCEDURE SP_AgregarUbicacionProfecional(in _ID_USUARIO int, 
+												in _ID_UBICACION int,
+												in _DETALLES varchar(100),
+												out _msj varchar(100))
+BEGIN 
+	IF NOT EXISTS(SELECT * FROM UBICACIONES_PROFESIONALES WHERE ID_USUARIO=_ID_USUARIO AND ID_UBICACION=_ID_UBICACION)
+    THEN
+    BEGIN
+		INSERT INTO UBICACIONES_PROFESIONALES(ID_USUARIO,ID_UBICACION,DETALLES) VALUES(_ID_USUARIO,_ID_UBICACION,_DETALLES);
+        SET _msj='La ubicación se agrego correctamente';
+        
+    END; 
+    ELSE 
+    BEGIN 
+		UPDATE UBICACIONES_PROFESIONALES 
+        SET ID_UBICACION=_ID_UBICACION, DETALLES=_DETALLES
+        WHERE ID_USUARIO=_ID_USUARIO AND ID_UBICACION=_ID_UBICACION;
+        SET _msj='La ubicacíon se actualizo correctamente';
+    END ;
+    END IF;
+
+END $
+
+DELIMITER ;
+
+
+-- =============== Eliminar Ubicacion Profecional ================= --
+DELIMITER $
+CREATE PROCEDURE SP_EliminarUbicacionProfecional(in _ID_USUARIO int, 
+												in _ID_UBICACION int,
+												out _msj varchar(100))
+BEGIN 
+	IF EXISTS(SELECT * FROM UBICACIONES_PROFESIONALES WHERE ID_USUARIO=_ID_USUARIO AND ID_UBICACION=_ID_UBICACION) THEN
+		BEGIN
+			DELETE FROM UBICACIONES_PROFESIONALES WHERE ID_USUARIO=_ID_USUARIO AND ID_UBICACION=_ID_UBICACION;
+			SET _msj='El sitio web se elimino correctamente';
+		END; 
+    ELSE 
+		BEGIN 
+			SET _msj='El sitio web no existe';
+		END ;
+    END IF;
+END $
+DELIMITER ;
 
