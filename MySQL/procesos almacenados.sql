@@ -112,4 +112,28 @@ END $
 
 
 -- drop procedure SP_EliminarUsuario
+--PROCEDIMIENTO PARA AGREGAR UNA OCUPACIÓN
+use pagina_web;
+DELIMITER $
+CREATE PROCEDURE Sp_AgregarOcupacion(in _idOcupacion int,in _nombre varchar(20),in _especialidad varchar(20),out _msj varchar(100) )
+BEGIN
+	IF EXISTS(SELECT * FROM ocupaciones WHERE ID_OCUPACION = _idOcupacion)
+    THEN
+    BEGIN
+		UPDATE ocupaciones
+        SET NOMBRE_OCUPACION = _nombre,
+			ESPACIALIDAD_OCUPACION = _especialidad
+        WHERE ID_OCUPACION = _idOcupacion;
+        SET _msj='La ocupación se agrego correctamente';
+    END;
+    ELSE
+		BEGIN
+			INSERT INTO ocupaciones (NOMBRE_OCUPACION,ESPACIALIDAD_OCUPACION)
+            VALUES(_nombre,_especialidad);
+        
+	END;
+    END IF;
+    
+END $																 
+																 
 
