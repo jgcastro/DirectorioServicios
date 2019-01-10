@@ -37,45 +37,45 @@ DELIMITER ;
 -- Resive como parametro el id del usuario verifica si existe y elimina el registro del usuario 
 -- verificando en cada tabla de la base de datos donde este el id del usuario que se va a eliminar
 DELIMITER $
-CREATE PROCEDURE SP_EliminarUsuario(in _id integer, out msj varchar(100))
+CREATE PROCEDURE `SP_EliminarUsuario`(in _ID integer, out _MSJ varchar(100))
 BEGIN
-    IF EXISTS(SELECT * FROM usuarios WHERE ID_USUARIO = _id)
+    IF EXISTS(SELECT * FROM USUARIOS WHERE ID_USUARIO = _ID)
 	THEN
 	BEGIN
 		  -- 1 eliminar sitios web
-		  IF EXISTS(SELECT * FROM WEBSITES WHERE ID_USUARIO = _id)
+		  IF EXISTS(SELECT * FROM WEBSITES WHERE ID_USUARIO = _ID)
 		  THEN
-				DELETE FROM WEBSITES WHERE ID_USUARIO=_id;
+				DELETE FROM WEBSITES WHERE ID_USUARIO=_ID;
 				
             END IF;  
              -- 2 eliminar ubicaciones
-            IF EXISTS(SELECT * FROM ubicaciones_profesionales WHERE ID_USUARIO = _id)
+            IF EXISTS(SELECT * FROM UBICACIONES_PROFESIONALES WHERE ID_USUARIO = _ID)
 			THEN
-				DELETE FROM ubicaciones_profesionales WHERE ID_USUARIO=_id;
+				DELETE FROM UBICACIONES_PROFESIONALES WHERE ID_USUARIO=_ID;
 				
             END IF;  
              -- 3 eliminar ocupaciones
-			IF EXISTS(SELECT * FROM ocupaciones_profesionales WHERE ID_USUARIO = _id)
+			IF EXISTS(SELECT * FROM OCUPACIONES_PROFESIONALES WHERE ID_USUARIO = _ID)
 			THEN
-				DELETE FROM ocupaciones_profesionales WHERE ID_USUARIO=_id;
+				DELETE FROM OCUPACIONES_PROFESIONALES WHERE ID_USUARIO=_ID;
 				
             END IF;
 			-- 4 eliminar calificaciones
-			IF EXISTS(SELECT * FROM calificaciones WHERE ID_USUARIO = _id)
+			IF EXISTS(SELECT * FROM CALIFICACIONES WHERE ID_USUARIO = _ID)
 			THEN
-				DELETE FROM calificaciones WHERE ID_USUARIO=_id;
+				DELETE FROM CALIFICACIONES WHERE ID_USUARIO=_ID;
 		
             END IF;
 			-- 5 eliminar usuario
-			IF EXISTS(SELECT * FROM usuarios WHERE ID_USUARIO = _id)
+			IF EXISTS(SELECT * FROM USUARIOS WHERE ID_USUARIO = _ID)
 			THEN
-				DELETE FROM usuarios WHERE ID_USUARIO=_id;
+				DELETE FROM USUARIOS WHERE ID_USUARIO=_ID;
 		
             END IF;
-		  SET msj='Su cuenta fue eliminada con exito';
+		  SET _MSJ='Su cuenta fue eliminada con exito';
 	END;
 	ELSE
-		SET msj='no existe el usuario';
+		SET _MSJ='No existe el usuario';
 	END IF;
     
 	SELECT msj;
@@ -202,21 +202,22 @@ DELIMITER ;
 -- ===== REGISTRAR_Y_ACTUALIZAR_USUARIO ===== --
 
 DELIMITER $
-CREATE PROCEDURE `SP_REGISTRAR_Y_ACTUALIZAR_USUARIO`(IN _ID_USUARIO INT,
+CREATE PROCEDURE `SP_REGISTRAR_Y_ACTUALIZAR_USUARIO`(INOUT _ID_USUARIO INT,
 													 IN _NOMBRE VARCHAR(20),
                                                      IN _APELLIDO1 VARCHAR(20),
                                                      IN _APELLIDO2 VARCHAR(20),
                                                      IN _CORREO VARCHAR(30),
                                                      IN _TELEFONO VARCHAR(8),
-                                                     IN _DESCRIPCION varchar(500),
+                                                     IN _DESCRIPCION VARCHAR(500),
                                                      IN _USUARIO_PREMIUM BIT,
-                                                     IN _ES_PROFESIONAL BIT)
+                                                     IN _ES_PROFESIONAL BIT,
+                                                     in _MSJ VARCHAR(100))
 BEGIN
 	IF _ID_USUARIO IN(SELECT ID_USUARIO FROM USUARIOS) THEN
 		CASE _ES_PROFESIONAL
 		WHEN 1 THEN 
         
-				UPDATE USUARIOS
+			UPDATE USUARIOS
 				SET NOMBRE_PROFESIONAL=_NOMBRE,
 					APELLIDO1_PROFESIONAL=_APELLIDO1,
 					APELLIDO2_PROFESIONAL=_APELLIDO2,
@@ -227,26 +228,28 @@ BEGIN
 				WHERE ID_USUARIO=_ID_USUARIOS;
 		WHEN 0 THEN
         
-			UPDATE USUARIOS
+				UPDATE USUARIOS
 				SET NOMBRE_PROFESIONAL=_NOMBRE,
 					APELLIDO1_PROFESIONAL=_APELLIDO1,
 					APELLIDO2_PROFESIONAL=_APELLIDO2
 				WHERE ID_USUARIO=_ID_USUARIOS;
                 
 		END CASE;
+        SET _MSJ='Su cuenta fue actualizada con exito';
 	ELSE 
 		CASE _ES_PROFESIONAL
 		WHEN 1 THEN 
         
-				insert INTO USUARIOS(NOMBRE_PROFESIONAL,APELLIDO1_PROFESIONAL,APELLIDO2_PROFESIONAL,CORREO_PROFESIONAL,TELEFONO_PROFESIONAL,DESCRIPCION,USUARIO_PREMIUM,PERFIL_PROFESIONAL)
+			INSERT INTO USUARIOS(NOMBRE_PROFESIONAL,APELLIDO1_PROFESIONAL,APELLIDO2_PROFESIONAL,CORREO_PROFESIONAL,TELEFONO_PROFESIONAL,DESCRIPCION,USUARIO_PREMIUM,PERFIL_PROFESIONAL)
 				VALUES(_NOMBRE,_APELLIDO1,_APELLIDO2,_CORREO,_TELEFONO,_DESCRIPCION,_USUARIO_PREMIUM,_ES_PROFESIONAL);
-             		        SET _ID_USUARIO=last_insert_id();
+			SET _ID_USUARIO=last_insert_id();
 		WHEN 0 THEN
         
-			insert INTO USUARIOS(NOMBRE_PROFESIONAL,APELLIDO1_PROFESIONAL,APELLIDO2_PROFESIONAL,PERFIL_PROFESIONAL)
+			INSERT INTO USUARIOS(NOMBRE_PROFESIONAL,APELLIDO1_PROFESIONAL,APELLIDO2_PROFESIONAL,PERFIL_PROFESIONAL)
 				VALUES(_NOMBRE,_APELLIDO1,_APELLIDO2,_ES_PROFESIONAL);
                 
 		END CASE;
+        SET _MSJ='Su cuenta fue creada con exito';
 	END IF;
 END $
 DELIMITER ;
