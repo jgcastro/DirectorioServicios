@@ -89,12 +89,13 @@ DELIMITER ;
 -- proceso almacenado para agregar paginas web 
 
 DELIMITER $
-CREATE PROCEDURE SP_AgregarSitiosWeb(in _cod_sitio int, in _id int ,in _url varchar(20),in _nombre varchar(20), out _msj varchar(100))
+CREATE PROCEDURE SP_AgregarSitiosWeb(inout _cod_sitio int, in _id int ,in _url varchar(20),in _nombre varchar(20), out _msj varchar(100))
 BEGIN 
 	IF NOT EXISTS(SELECT * FROM WEBSITES WHERE COD_SITIO=_cod_sitio)
     THEN
     BEGIN
 		INSERT INTO WEBSITES(ID_USUARIO,URL_SITIO,NOMBRE_SITIO) VALUES(_id,_url,_nombre);
+		SET _cod_sitio=last_insert_id();
         SET _msj='El sitio web se agrego correctamente';
         
     END; 
