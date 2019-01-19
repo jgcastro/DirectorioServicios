@@ -1,0 +1,22 @@
+Esta es la documentacion de la Base de datos
+
+ ====================== Contenido ========================
+Los nombres de los archivos indican la infomacion que contienen
+
+Base de Datos: 
+	Contiene el Query que crea la base de datos (tablas, Pk, Fk).
+
+Datos: 
+	Contiene los datos que la base de datos debe tener cargados por defecto, para que funcione correctamente.
+
+Procedimientos: 
+	Contiene los procedimientos nesesarios para la manipulacion de la base de datos.
+
+ ===================== Como Utilizar ======================
+
+Si quiere crear la base de datos localmente tiene que ejecutar los Querys en siguiente orden:
+	1 - Base de Datos (PAGINA_WEB)
+	2 - Datos (OCUPACIONE)
+	3 - Datos (UBICACIONES)
+	4 - Procedimientos
+
